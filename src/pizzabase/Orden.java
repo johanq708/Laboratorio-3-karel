@@ -13,58 +13,27 @@ public class Orden {
     Scanner teclado= new Scanner(System.in);
     private Pizza pizza;
     private Bebida bebida;
-    private int v;
-    private int t;
-    private int c;
-    private int beb;
-    private int valorpizza;
-    private int valorbebida;
-    private String s;
+    private int valororden;
 
     public Orden() {
         this.pizza = pizza;
         this.bebida = bebida;
+        this.valororden = valororden;
     }
 
-    public int getValorbebida() {
-        return valorbebida;
+    public int getValororden() {
+        return valororden;
     }
 
-    public void setValorbebida(int valorbebida) {
-        this.valorbebida = valorbebida;
-    }
-
-    public int getValorpizza() {
-        return valorpizza;
-    }
-
-    public void setValorpizza(int valorpizza) {
-        this.valorpizza = valorpizza;
-    }
-
-    public Pizza getPizza() {
-        return pizza;
-    }
-
-    public void setPizza(Pizza pizza) {
-        this.pizza = pizza;
-    }
-
-    public Bebida getBebida() {
-        return bebida;
-    }
-
-    public void setBebida(Bebida bebida) {
-        this.bebida = bebida;
-    }
     public void tipopizza(){
-        pizza.dartamaño();
+        this.pizza.dartamaño();
         System.out.println("como desea su pizza: armela usted mismo=1, pizza predeterminda=2");
-        c=teclado.nextInt();
+        int c=teclado.nextInt();
         if(c==1){
             pizza.valoringrediente();
-            System.out.println("¿desea algun otro ingrediente? Escriba si o no");
-            while(s=="si"){
+            System.out.println("¿desea algun otro ingrediente? 1=si o otro numero=no");
+            int s=teclado.nextInt();
+            while(s==1){
                 pizza.masingrediente();
             }
         }else
@@ -73,27 +42,24 @@ public class Orden {
         }
     }
     
-    public void valorpizza(){
-        valorpizza=pizza.getValort()*pizza.getValor();
+    public int valorpizza(){
+        return pizza.pizzapt();
     }
-    public void valorb(){
-        System.out.println("Escoja el tamaño su bebida: 1=pequeño, 2=grande");
-        v=teclado.nextInt();
-        if(v==1){
-            setValorbebida(5000);
-        }else
-        if(v==2){
-            setValorbebida(7000);
-        }else{
-            System.out.println("tamaño invalido");
-        }
-        }
+    
     public void decidirbeb(){
         System.out.println("¿desea ordenar bebida? 1=si, otro numero=no");
-        beb=teclado.nextInt();
+        int beb=teclado.nextInt();
             if(beb==1){
-                this.valorb();
                 bebida.saborb();
+                bebida.valorbebida();
+            }else{
+                bebida.setVbebida(0);
             }
+    }
+    public int valorbebida(){
+        return bebida.getVbebida();
+    }
+    public int valortotal(){
+        return valororden=this.valorbebida()+this.valorpizza();
     }
 }
