@@ -6,16 +6,22 @@
 package pizzabase;
 
 /**
- *
- * @author johit
+ * @since 10 de marzo de 2017
+ * @author Johan Quiñonez
+ * @version 1.0
  */
 public class Tamaño {
     private int tam;
-
+/**
+    * constructor 
+    * @param tam tamaño de la pizza
+    */
     public Tamaño() {
         this.tam = tam;
     }
-
+    /**
+    *@return el tamaño
+    */
     public int getTam() {
         return tam;
     }
