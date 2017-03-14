@@ -7,38 +7,43 @@ package pizzabase;
 import java.util.Scanner;
 /**
  *
- * @author johit
+ * @author Johan Daniel Quiñonez Ruiz
  */
 public class Bebida {
     Scanner teclado= new Scanner(System.in);
-    private String sabor1="limonada";
-    private String sabor2="cola";
-    private int v;
-    private int s;
-
-    public Bebida() {
-        this.sabor1 = sabor1;
+    private Sabor sab;
+    private Altura[]alt;
+    private int vbebida;
+    
+    public Bebida(){
+        this.sab=sab;
+        Altura[] alt=new Altura[2];
+        this.alt[0]=new Altura(3000,"pequeña");
+        this.alt[1]=new Altura(5000,"grande");
+        this.vbebida=vbebida;
     }
 
-    public String getSabor1() {
-        return sabor1;
+    public Sabor getSab() {
+        return sab;
     }
 
-    public String getSabor2(){
-        return sabor2;
+    public int getVbebida() {
+        return vbebida;
+    }
+
+    public void setVbebida(int vbebida) {
+        this.vbebida = vbebida;
     }
     
     public void saborb(){
-        System.out.println("¿Que sabor de bebida quiere: 1=cola o 2=limonada?");
-        s=teclado.nextInt();
-        if(s==1){
-            getSabor1();
-        }else
-        if(s==2){
-            getSabor2();
-        }else{
-            System.out.println("sabor invalido");
-        }
+        System.out.println("¿Que sabor de bebida quiere: cola o limonada?");
+        String s=teclado.next();
+        sab.setNombre(s);
     }
+    public int valorbebida(){
+        System.out.println("De que tamaño quiere su bebida: 1=pequeña, 2=grande");
+        int s=teclado.nextInt();
+        return vbebida=alt[s-1].getPrecio();
     }
+}
 
