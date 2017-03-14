@@ -6,7 +6,7 @@
 package pizzabase;
 import java.util.Scanner;
 /**
- * @since 12 de marzo de 2017
+ * @since 10 de marzo de 2017
  * @author Johan Quiñonez
  * @version 1.0
  */
