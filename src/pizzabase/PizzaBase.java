@@ -18,8 +18,8 @@ public class PizzaBase {
         Scanner teclado= new Scanner(System.in);
         Orden orden1=new Orden();
         orden1.tipopizza();
-        System.out.println("El valor de su pizza es: "+orden1.getValorpizza());
+        System.out.println("El valor de su pizza es: "+orden1.valorpizza());
         orden1.decidirbeb();
-        System.out.println("El valor de su orden es: "+(orden1.getValorpizza()+orden1.getValorbebida()));
+        System.out.println("El valor de su orden es: "+orden1.valortotal());
 }
 }
