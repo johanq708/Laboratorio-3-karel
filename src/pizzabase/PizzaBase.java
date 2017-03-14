@@ -6,8 +6,9 @@
 package pizzabase;
 import java.util.Scanner;
 /**
- *
- * @author Johan Daniel Quiñonez Ruiz
+ * @since 10 de marzo de 2017
+ * @author Johan Quiñonez
+ * @version 1.0
  */
 public class PizzaBase {
 
