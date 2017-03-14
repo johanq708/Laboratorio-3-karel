@@ -11,172 +11,69 @@ import java.util.Scanner;
  */
 public class Pizza {
     Scanner teclado= new Scanner(System.in);
-    private int piña=2000;
-    private int jamon=1500;
-    private int queso=1000;
-    private int salami=3000;
-    private int maiz=2000;
-    private int carne=3000;
-    private int pollo=3000;
-    private int carnes=7000;
-    private int hawaiyana=5000;
-    private int mexicana=6000;
-    private int pequeño=3;
-    private int mediano=6;
-    private int grande=9;
-    private int v;
-    private int t;
-    private int valor;
-    private int valort;
+    private Ingrediente[] ing;
+    private Tamaño tamaño;
+    private int vpizza;
+    private Predeterminada[] pre;
 
-    public int getValort() {
-        return valort;
+    public Pizza() {
+        this.tamaño = tamaño;
+        this.ing[0]= new Ingrediente(500,"queso"); 
+        this.ing[1]= new Ingrediente(700,"jamon"); 
+        this.ing[2]= new Ingrediente(1500,"carne"); 
+        this.ing[3]= new Ingrediente(1500,"pollo"); 
+        this.ing[4]= new Ingrediente(1600,"salami"); 
+        this.ing[5]= new Ingrediente(800,"piña"); 
+        this.ing[6]= new Ingrediente(800,"maiz");
+        this.pre[0]= new Predeterminada(3000,"carnes");
+        this.pre[1]= new Predeterminada(2500,"hawaiyana");
+        this.pre[2]= new Predeterminada(3000,"mexicana");
+        this.vpizza=vpizza;
     }
 
-    public void setValort(int valort) {
-        this.valort = valort;
+    public Tamaño getTamaño() {
+        return tamaño;
     }
 
-    public int getValor() {
-        return valor;
-    }
-
-    public void setValor(int valor) {
-        this.valor = valor;
-    }
-
-    public int getPequeño() {
-        return pequeño;
-    }
-
-    public int getMediano() {
-        return mediano;
-    }
-
-    public int getGrande() {
-        return grande;
-    }
-
-    public int getPiña() {
-        return piña;
-    }
-
-    public int getJamon() {
-        return jamon;
-    }
-
-    public int getQueso() {
-        return queso;
-    }
-
-    public int getSalami() {
-        return salami;
-    }
-
-    public int getMaiz() {
-        return maiz;
-    }
-
-    public int getCarne() {
-        return carne;
-    }
-
-    public int getPollo() {
-        return pollo;
-    }
-
-    public int getCarnes() {
-        return carnes;
-    }
-
-    public int getHawaiyana() {
-        return hawaiyana;
-    }
-
-    public int getMexicana() {
-        return mexicana;
+    public int getVpizza() {
+        return vpizza;
     }
     
     public void dartamaño(){
         System.out.println("Que tamaño de pizza desea, pequeño=1, mediana=2 o grande=3");
-        t=teclado.nextInt();
+        int t=teclado.nextInt();
         if(t==1){
-            setValort(getPequeño());
+            tamaño.setTam(3);
         }else
         if(t==2){
-            setValort(getMediano());
+            tamaño.setTam(6);
         }else
         if(t==3){
-            setValort(getGrande());
+            tamaño.setTam(9);
         }else{
             System.out.println("tamaño invalido");
         }
     }
     
-    public void valoringrediente(){
-        System.out.println("¿Que ingrediente desea?: 1=piña,2=jamon,3=queso,4=salami,5=maiz,6=carne,7=pollo");
-        v=teclado.nextInt();
-        if(t==1){
-            setValor(getPiña());
-        }else
-        if(t==2){
-            setValor(getJamon());
-        }  
-        if(t==3){
-            setValor(getQueso());
-        }
-        if(t==4){
-            setValor(getSalami());
-        }
-        if(t==5){
-            setValor(getMaiz());
-        }
-        if(t==6){
-            setValor(getCarne());
-        }
-        if(t==7){
-            setValor(getPollo());
-        }
+    public int valoringrediente(){
+        System.out.println("¿Que ingrediente desea?: 1=queso,2=jamon,3=carne,4=pollo,5=salami,6=piña,7=maiz");
+        int v=teclado.nextInt();
+        return vpizza=ing[v-1].getPrecio();
     }
     
-    public void masingrediente(){
-        System.out.println("¿Que otro ingrediente desea?: 1=piña,2=jamon,3=queso,4=salami,5=maiz,6=carne,7=pollo");
+    public int masingrediente(){
+        System.out.println("¿Que otro ingrediente desea?: 1=queso,2=jamon,3=carne,4=pollo,5=salami,6=piña,7=maiz");
         System.out.println("no repita el ingrediente que escogió anteriormente");
-        v=teclado.nextInt();
-        if(t==1){
-            setValor(getValor()+getPiña());
-        }else
-        if(t==2){
-            setValor(getValor()+getJamon());
-        }  
-        if(t==3){
-            setValor(getValor()+getQueso());
-        }
-        if(t==4){
-            setValor(getValor()+getSalami());
-        }
-        if(t==5){
-            setValor(getValor()+getMaiz());
-        }
-        if(t==6){
-            setValor(getValor()+getCarne());
-        }
-        if(t==7){
-            setValor(getValor()+getPollo());
-        }
+        int v=teclado.nextInt();
+        return vpizza+=ing[v-1].getPrecio();
     }
     
-    public void pizzap(){
+    public int pizzap(){
         System.out.println("¿Que pizza desea?: 1=carnes, 2=hawaiyana, 3=mexicana");
-        v=teclado.nextInt();
-        if(t==1){
-            setValor(getCarnes());
-        }
-        if(t==2){
-            setValor(getHawaiyana());
-        }
-        if(t==3){
-            setValor(getMexicana());
-        }
+        int v=teclado.nextInt();
+        return vpizza=pre[v-1].getPrecio();
+    }
+    public int pizzapt(){
+        return vpizza=vpizza*tamaño.getTam();
     }
 }
