@@ -43,10 +43,11 @@ public class Orden {
         int c=teclado.nextInt();
         if(c==1){
             pizza.valoringrediente();
-            System.out.println("¿desea algun otro ingrediente? 1=si o otro numero=no");
-            int s=teclado.nextInt();
+            int s=1;
             while(s==1){
-                pizza.masingrediente();
+            System.out.println("¿desea algun otro ingrediente? 1=si o otro numero=no");
+            s=teclado.nextInt();
+            pizza.masingrediente();
             }
         }else
         if(c==2){
